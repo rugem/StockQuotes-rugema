@@ -1,18 +1,18 @@
-package edu.cofc.csci490.stockquotes_rugema;
+package edu.cofc.stock;
 
 import android.util.Log;
 import java.net.*;
 import java.io.*;
 
-
-public class Stock implements Serializable {
+public class Stock implements Serializable
+{
     private static final boolean DEBUG = true;
 
     private static final String QUOTE_FORMAT = "&f=lcwn";
     // format for symbols: last trade (with time), change & percent change,
     // 52-week range, name
 
-    private static final String TAG_PREFIX = "edu.cofc.stock";
+    private static final String TAG_PREFIX = "edu.stock";
 
     private String symbol;
     private String lastTradeTime;
@@ -70,11 +70,11 @@ public class Stock implements Serializable {
             // parse the line and remove quotes where necessary
             String[] values = line.split(",");
             change = values[1].substring(1, values[1].length() - 1);
-            range  = values[2].substring(1, values[2].length() - 1);
-            name   = values[3].substring(1, values[3].length() - 1);
+            range = values[2].substring(1, values[2].length() - 1);
+            name = values[3].substring(1, values[3].length() - 1);
 
             // Since real names can have commas, handle possible rest of name.
-            for (int i = 4;  i < values.length;  ++i)
+            for (int i = 4; i < values.length; ++i)
                 name = name + ", " + values[i].substring(1, values[i].length() - 1);
 
             if (DEBUG)
@@ -109,6 +109,7 @@ public class Stock implements Serializable {
     {
         return lastTradePrice;
     }
+
 
     /**
      * Returns the stock's .
