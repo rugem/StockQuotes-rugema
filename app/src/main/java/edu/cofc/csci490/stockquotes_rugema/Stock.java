@@ -12,7 +12,7 @@ public class Stock implements Serializable {
     // format for symbols: last trade (with time), change & percent change,
     // 52-week range, name
 
-    private static final String TAG_PREFIX = "edu.cofc.stock";
+    private static final String TAG_PREFIX = "csci490";
 
     private String symbol;
     private String lastTradeTime;
