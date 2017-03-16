@@ -4,6 +4,7 @@ import android.util.Log;
 import java.net.*;
 import java.io.*;
 
+
 public class Stock implements Serializable
 {
     private static final boolean DEBUG = true;
@@ -20,6 +21,7 @@ public class Stock implements Serializable
     private String change;
     private String range;
     private String name;
+
 
     public Stock(String symbol)
     {
@@ -70,11 +72,11 @@ public class Stock implements Serializable
             // parse the line and remove quotes where necessary
             String[] values = line.split(",");
             change = values[1].substring(1, values[1].length() - 1);
-            range = values[2].substring(1, values[2].length() - 1);
-            name = values[3].substring(1, values[3].length() - 1);
+            range  = values[2].substring(1, values[2].length() - 1);
+            name   = values[3].substring(1, values[3].length() - 1);
 
             // Since real names can have commas, handle possible rest of name.
-            for (int i = 4; i < values.length; ++i)
+            for (int i = 4;  i < values.length;  ++i)
                 name = name + ", " + values[i].substring(1, values[i].length() - 1);
 
             if (DEBUG)
@@ -109,7 +111,6 @@ public class Stock implements Serializable
     {
         return lastTradePrice;
     }
-
 
     /**
      * Returns the stock's .

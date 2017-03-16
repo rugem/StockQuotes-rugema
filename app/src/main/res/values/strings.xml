@@ -1,10 +1,17 @@
 <resources>
     <string name="app_name">StockQuotes-rugema</string>
     <string name="symbol_name">Enter stock symbol :</string>
-    <string name="symbol">symbol :</string>
+    <string name="symbol">Symbol :</string>
     <string name="name">Name :</string>
     <string name="trade_price">Last Trade Price :</string>
     <string name="trade_time">Last Trade Time :</string>
     <string name="change">Change :</string>
     <string name="week_range">52 Week Range :</string>
+    <string name="symbol_txt"></string>
+    <string name="name_txt"></string>
+    <string name="last_trade_price_txt"></string>
+    <string name="last_trade_time_txt"></string>
+    <string name="change_txt"></string>
+    <string name="week_range_txt"></string>
+    <string name="get_stock_quote">Get Stock Quote</string>
 </resources>
