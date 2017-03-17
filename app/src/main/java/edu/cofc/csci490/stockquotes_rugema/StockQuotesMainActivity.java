@@ -63,7 +63,12 @@ public class StockQuotesMainActivity extends AppCompatActivity
             public void onClick(View v)
             {
                 textInput = symbolTextInput.getText().toString();
-                new StockQuotesTask().execute();
+                if(textInput.isEmpty() || textInput.contains(" ")){
+                    Toast.makeText(StockQuotesMainActivity.this,
+                            "Error in retrieving stock symbol", Toast.LENGTH_LONG).show();
+                } else {
+                    new StockQuotesTask().execute();
+                }
             }
         });
     }
@@ -115,9 +120,10 @@ public class StockQuotesMainActivity extends AppCompatActivity
         {
             super.onPostExecute(stock);
 
-            if (stock.equals(null))
+            if (stock == null)
             {
-                Toast.makeText(StockQuotesMainActivity.this, "Error in retrieving stock symbol", Toast.LENGTH_LONG).show();
+                Toast.makeText(StockQuotesMainActivity.this,
+                        "Error in retrieving stock symbol", Toast.LENGTH_LONG).show();
             } else {
                 symbolVal = stock.getSymbol();
                 nameVal = stock.getName();
