@@ -45,7 +45,6 @@ public class StockQuotesMainActivity extends AppCompatActivity
         weekRange = (TextView) findViewById(R.id.weekRangeTextID);
         getStockQuote = (Button) findViewById(R.id.stockQuoteBtn);
 
-
         if (savedInstanceState != null)
         {
             symbolTextInput.setText(savedInstanceState.getString(SAVED_TEXT));
@@ -73,13 +72,13 @@ public class StockQuotesMainActivity extends AppCompatActivity
     protected void onSaveInstanceState(Bundle outState)
     {
         super.onSaveInstanceState(outState);
-        outState.putString(textInput, SAVED_TEXT);
-        outState.putString(nameVal, SAVED_NAME);
-        outState.putString(changeVal, SAVED_CHANGE);
-        outState.putString(tradePriceVal, SAVED_PRICE);
-        outState.putString(tradTimeVal, SAVED_TIME);
-        outState.putString(rangeVal, SAVED_RANGE);
-        outState.putString(symbolVal, SAVED_SYMBOL);
+        outState.putString(SAVED_TEXT, textInput);
+        outState.putString(SAVED_NAME, nameVal);
+        outState.putString(SAVED_CHANGE, changeVal);
+        outState.putString(SAVED_PRICE, tradePriceVal);
+        outState.putString(SAVED_TIME, tradTimeVal);
+        outState.putString(SAVED_RANGE, rangeVal);
+        outState.putString(SAVED_SYMBOL, symbolVal);
     }
 
     @Override
@@ -116,7 +115,7 @@ public class StockQuotesMainActivity extends AppCompatActivity
         {
             super.onPostExecute(stock);
 
-            if (stock == null)
+            if (stock.equals(null))
             {
                 Toast.makeText(StockQuotesMainActivity.this, "Error in retrieving stock symbol", Toast.LENGTH_LONG).show();
             } else {
@@ -128,6 +127,7 @@ public class StockQuotesMainActivity extends AppCompatActivity
                 rangeVal = stock.getRange();
 
                 //set retrieved value
+                symbolTextInput.setText(textInput);
                 symbol.setText(symbolVal);
                 name.setText(nameVal);
                 tradePrice.setText(tradePriceVal);
